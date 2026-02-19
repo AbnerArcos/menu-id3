@@ -65,7 +65,7 @@ body {
 }
 
 .tab.active {
-  background: #1E88E5;
+  background: #F06292;
   color: white;
 }
 
@@ -80,7 +80,7 @@ body {
 
 
 .tab.active {
-  background: #1E88E5;
+  background: #F06292;
   color: white;
 }
 
@@ -199,7 +199,7 @@ h2 {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: transparent;
   opacity: 0;
   pointer-events: none;
   transition: none;
@@ -212,7 +212,7 @@ h2 {
   left: 0;
   right: 0;
   bottom: -100%;
-  height: 90%;
+  height: 100%;
   background: white;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
@@ -334,7 +334,7 @@ textarea {
 }
 
 .go-cart {
-  background: #1E88E5;
+  background: #F06292;
   color: white;
   border: none;
   padding: 8px 14px;
@@ -346,7 +346,7 @@ textarea {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 90%;
+  height: 100%;
   background: white;
   border-radius: 24px 24px 0 0;
   transform: translateY(100%);
