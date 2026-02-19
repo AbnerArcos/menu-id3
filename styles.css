@@ -152,13 +152,20 @@ h2 {
   width: 100%;
   height: 34px;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  background: #f8f8f8;
-  font-size: 13px;
-  box-shadow: none;
-  position: static;
-  color: #F06292;  
+  border: none;                 /* quitamos borde gris */
+  background: #F06292;          /* fondo rosado */
+  font-size: 16px;
+  font-weight: 600;
+  color: white;                 /* + blanco */
+  cursor: pointer;
+  transition: 0.2s ease;
 }
+
+/* efecto al presionar */
+.add-btn:hover {
+  background: #e05586;          /* rosado un poco más oscuro */
+}
+
 
 /* BOTÓN + FLOTANTE */
 .top-bar {
@@ -628,3 +635,4 @@ button {
 .section h2 {
   grid-column: 1 / -1;
 }
+
