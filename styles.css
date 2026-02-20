@@ -65,7 +65,7 @@ body {
 }
 
 .tab.active {
-  background: #F06292;
+  background: #b58b63;
   color: white;
 }
 
@@ -80,7 +80,7 @@ body {
 
 
 .tab.active {
-  background: #F06292;
+  background: #b58b63;
   color: white;
 }
 
@@ -153,7 +153,7 @@ h2 {
   height: 34px;
   border-radius: 12px;
   border: none;                 /* quitamos borde gris */
-  background: #F06292;          /* fondo rosado */
+  background: #b58b63;          /* fondo rosado */
   font-size: 16px;
   font-weight: 600;
   color: white;                 /* + blanco */
@@ -291,7 +291,7 @@ textarea {
 }
 
 .add-cart-btn {
-  background: #F06292;
+  background: #b58b63;
   color: white;
   border: none;
   padding: 12px 18px;
@@ -342,7 +342,7 @@ textarea {
 }
 
 .go-cart {
-  background: #F06292;
+  background: #b58b63;
   color: white;
   border: none;
   padding: 8px 14px;
