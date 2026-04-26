@@ -163,7 +163,7 @@ h2 {
 
 /* efecto al presionar */
 .add-btn:hover {
-  background: #e0e0e0;          /* rosado un poco más oscuro */
+  background: ##b58b63;          /* rosado un poco más oscuro */
 }
 
 
@@ -342,7 +342,7 @@ textarea {
 }
 
 .go-cart {
-  background: #e0e0e0;
+  background: #b58b63;
   color: white;
   border: none;
   padding: 8px 14px;
