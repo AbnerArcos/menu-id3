@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedido</title>
+</head>
+<body>
+
+<h2>Detalle del pedido</h2>
+<pre id="orderData"></pre>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+const data = localStorage.getItem(id);
+
+document.getElementById("orderData").textContent = data || "Pedido no encontrado";
+</script>
+
+</body>
+</html>

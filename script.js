@@ -36,47 +36,41 @@ const confirmModal = document.getElementById("confirmModal");
 const confirmItems = document.getElementById("confirmItems");
 const confirmTotal = document.getElementById("confirmTotal");
 
-document.getElementById("sendWhatsApp")
-  .addEventListener("click", () => {
+document.getElementById("generateOrder")
+.addEventListener("click", () => {
 
-    if (cart.length === 0) return;
-	
-	// 📳 Vibración leve
-if (navigator.vibrate) {
-  navigator.vibrate(40);
-}
+  if (cart.length === 0) return;
 
+  let total = 0;
+  let orderText = "PEDIDO\n\n";
 
-    confirmItems.innerHTML = "";
+  cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
 
-    let total = 0;
+    orderText += `${item.name} x${item.quantity}\n`;
+    orderText += `$${subtotal} MXN\n`;
 
-    cart.forEach(item => {
+    if (item.note) {
+      orderText += `Nota: ${item.note}\n`;
+    }
 
-      const subtotal = item.price * item.quantity;
-      total += subtotal;
+    orderText += "\n";
+  });
 
-      const div = document.createElement("div");
-      div.classList.add("confirm-item");
+  orderText += `TOTAL: $${total} MXN\n`;
+  orderText += `Hora: ${new Date().toLocaleTimeString()}`;
 
-      div.innerHTML = `
-        <img src="${item.image}" />
-        <div>
-          <div>${item.name}</div>
-          <small>${item.quantity} x ${item.price}$</small>
-        </div>
-        <div style="margin-left:auto;font-weight:bold;">
-          ${subtotal}$
-        </div>
-      `;
+  // 🔥 generar ID único
+  const orderId = "ORD-" + Date.now();
 
-      confirmItems.appendChild(div);
-    });
+  // 🔥 guardar pedido (simulación)
+  localStorage.setItem(orderId, orderText);
 
-    confirmTotal.textContent = `${total}$`;
-
-    confirmModal.classList.add("active");
+  // 🔥 crear QR
+  showQR(orderId);
 });
+
 document.getElementById("cancelConfirm")
   .addEventListener("click", () => {
     confirmModal.classList.remove("active");
@@ -464,6 +458,45 @@ inner.addEventListener("touchend", (e) => {
       msg.remove();
     }, 300);
   }, 2500);
+}
+
+function showQR(orderId) {
+
+  const qrModal = document.createElement("div");
+  qrModal.style.position = "fixed";
+  qrModal.style.inset = "0";
+  qrModal.style.background = "rgba(0,0,0,0.7)";
+  qrModal.style.display = "flex";
+  qrModal.style.justifyContent = "center";
+  qrModal.style.alignItems = "center";
+  qrModal.style.zIndex = "5000";
+
+  const content = document.createElement("div");
+  content.style.background = "white";
+  content.style.padding = "20px";
+  content.style.borderRadius = "20px";
+  content.style.textAlign = "center";
+
+  // URL simulada (aquí luego irá tu backend)
+  const url = `${location.origin}/order.html?id=${orderId}`;
+
+  content.innerHTML = `
+    <h3>Escanea tu pedido</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}">
+    <p style="margin-top:10px;font-size:12px;">Muestra este código al mesero</p>
+    <button id="closeQR" style="margin-top:10px;">Cerrar</button>
+  `;
+
+  qrModal.appendChild(content);
+  document.body.appendChild(qrModal);
+
+  document.getElementById("closeQR").onclick = () => {
+    qrModal.remove();
+  };
+
+  // 🔥 limpiar carrito después
+  cart = [];
+  updateCartBar();
 }
 
 
