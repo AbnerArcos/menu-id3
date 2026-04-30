@@ -208,6 +208,7 @@ if (navigator.vibrate) {
       modalImage.src = item.dataset.image;
       modalName.textContent = item.dataset.name;
       modalDescription.textContent = item.dataset.description;
+	  document.getElementById("modalPrice").textContent = `$${item.dataset.price} MXN`;
 
       quantity = 1;
       quantityValue.textContent = quantity;
