@@ -214,24 +214,6 @@ h2 {
   z-index: 90;
 }
 
-/* MODAL */
-.product-modal {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -100%;
-  height: 100%;
-  background: white;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  transition: 0.4s ease;
-  z-index: 100;
-  display: flex;
-}
-
-.product-modal.active {
-  bottom: 0;
-}
 
 .overlay.active {
   opacity: 1;
@@ -245,13 +227,6 @@ h2 {
   flex-direction: column;
 }
 
-.modal-content img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 15px;
-}
 
 .modal-info h2 {
   margin-bottom: 6px;
@@ -268,12 +243,6 @@ textarea {
 }
 
 /* FOOTER */
-.modal-footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .quantity {
   display: flex;
@@ -690,13 +659,6 @@ textarea {
 }
 
 /* FOOTER MEJORADO */
-.modal-footer {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* BOTONES CANTIDAD */
 .quantity button {
   background: #eee;
@@ -711,4 +673,144 @@ textarea {
   padding: 14px 20px;
   border-radius: 999px;
   font-size: 14px;
+}
+
+/* =========================
+   MODAL ESTILO APP REAL
+========================= */
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  background: #f4f1ed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: 0.35s ease;
+}
+
+.product-modal.active {
+  transform: translateY(0);
+}
+
+/* CONTENIDO SCROLL */
+.modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  padding-bottom: 120px;
+}
+
+/* TOP */
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-social {
+  display: flex;
+  gap: 14px;
+  font-size: 20px;
+}
+
+/* BOTÓN X */
+.close-modal {
+  position: static; /* 🔥 importante */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* IMAGEN */
+.modal-content img {
+  width: 100%;
+  max-width: 260px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 16px;
+}
+
+/* INFO + LÍNEA */
+.modal-info {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-info h2 {
+  font-size: 17px;
+}
+
+.modal-price {
+  font-size: 14px;
+  color: #b58b63;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.modal-info p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* TEXTAREA BLOQUE */
+textarea {
+  width: 100%;
+  margin-top: 15px;
+  background: #e9e7e4;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 13px;
+}
+
+/* FOOTER FIJO ABAJO */
+.modal-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f4f1ed;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #ddd;
+}
+
+/* CANTIDAD */
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #e0e0e0;
+  font-size: 18px;
+}
+
+.quantity span {
+  font-size: 14px;
+}
+
+/* BOTÓN */
+.add-cart-btn {
+  flex: 1;
+  background: #b58b63;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
 }
